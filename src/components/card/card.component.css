@@ -1,0 +1,39 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-text-inactive);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.card-card > .left-info {
+    display: flex;
+    align-items: center;
+}
+.card-card:hover {
+    background-color: var(--color-border-neutral);
+}
+
+.card-img {
+    padding: 0 var(--space-extra-large);
+}
+
+.card-balance {
+    align-self: flex-end;
+    padding: 0 var(--space-extra-large);
+}
+
+.balance::before {
+    content: '€';
+    padding: var(--space-extra-small);
+}
+.card-balance > .balance {
+    font-size: x-large;
+}
+
+.round-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--color-text-inactive);
+}

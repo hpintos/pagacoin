@@ -1,0 +1,5 @@
+.user-details-wrapper {
+    background-color: #fff;
+    padding: var(--space-large);
+    height: 100%;
+}

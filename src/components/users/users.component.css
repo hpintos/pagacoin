@@ -1,0 +1,50 @@
+.users-wrapper {
+    background-color: #fff;
+    padding: var(--space-large);
+    height: 100%;
+}
+
+.users-wrapper > a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.user-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-text-inactive);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.user-card > .left-info {
+    display: flex;
+    align-items: center;
+}
+.user-card:hover {
+    background-color: var(--color-border-neutral);
+}
+
+.user-img {
+    padding: 0 var(--space-extra-large);
+}
+
+.user-balance {
+    align-self: flex-end;
+    padding: 0 var(--space-extra-large);
+}
+
+.balance::before {
+    content: '€';
+    padding: var(--space-extra-small);
+}
+.user-balance > .balance {
+    font-size: x-large;
+}
+
+.round-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--color-text-inactive);
+}

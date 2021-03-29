@@ -1,0 +1,62 @@
+.side-menu-wrapper {
+    background-color: var(--color-primary);
+    height: 100%;
+    /* max-width: 16em; */
+}
+
+.brand-title {
+    color: white;
+}
+
+.side-menu-header {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-large);
+    justify-content: center;
+    align-items: center;
+}
+
+.side-menu-transfer-button {
+    background-color: var(--color-positive);
+    border: none;
+    outline: var(--color-positive);
+    font-weight: bold;
+    color: white;
+    padding: var(--space-small);
+    min-width: 200px;
+    cursor: pointer;
+}
+
+.side-menu-transfer-button:hover {
+    background-color: var(--color-control-positive-hover);
+}
+
+.side-menu-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-item {
+    border-left: 3px solid transparent;
+    padding: var(--space-small);
+    padding-left: var(--space-extra-large);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.side-menu-items > a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-item.active {
+    border-color: var(--color-accent);
+}
+
+.menu-item:hover {
+    background-color: var(--color-secondary);
+}

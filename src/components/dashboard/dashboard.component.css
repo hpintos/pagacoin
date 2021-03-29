@@ -1,0 +1,29 @@
+.dashboard-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 250px auto;
+    grid-template-areas: 'sidebar content';
+}
+
+.sidebar {
+    background-color: lightgreen;
+}
+
+.header {
+    height: 2em;
+    padding: var(--space-large);
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.content {
+    background-color: var(--color-background-neutral);
+}
+
+.overview {
+    padding: var(--space-large);
+    min-height: 100%;
+    overflow: hidden;
+}
