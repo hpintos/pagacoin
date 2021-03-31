@@ -10,7 +10,6 @@ export const Users = (props) => {
     React.useEffect(() => {
         const fetchUsers = async () => {
             const users = await userService.getAll();
-            console.log(users);
             setUsers(users || []);
         };
         fetchUsers();

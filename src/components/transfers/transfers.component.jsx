@@ -9,7 +9,6 @@ export const Transfers = () => {
     React.useEffect(() => {
         const fetchTransfers = async () => {
             const transfers = await transferService.getAll();
-            console.log(transfers);
             setTransfers(transfers || []);
         };
         fetchTransfers();

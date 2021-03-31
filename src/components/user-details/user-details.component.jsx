@@ -14,7 +14,9 @@ export const UserDetails = (props) => {
             const user = await userService.get(props.match.params.userId);
             const userWallets = await walletsService.get(props.match.params.userId);
             setUser(user);
-            setWallets(Object.entries(userWallets.wallets));
+            if (userWallets) {
+                setWallets(Object.entries(userWallets.wallets));
+            }
         };
         fetchUser();
     }, [props.match.params.userId, userService, walletsService]);
@@ -28,13 +30,13 @@ export const UserDetails = (props) => {
                     {'🔙'}
                 </Link>
             </div>
-            {user && (
-                <>
-                    <h1>{ownerName}</h1>
-                    <p>{user.email}</p>
 
+            {user && (
+                <div>
+                    <h1>{ownerName}</h1>
+                    <span>{user.email}</span>
                     <Wallets wallets={wallets} ownerName={ownerName}></Wallets>
-                </>
+                </div>
             )}
         </section>
     );

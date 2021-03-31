@@ -6,7 +6,11 @@ import { SideMenu } from '../side-menu/side-menu.component';
 import { Header } from '../header/header.component';
 import { Users } from '../users/users.component';
 import { UserContext } from '../../contexts/users.context';
-import { createUsersService, createWalletsService, createTransfersService } from '../../services';
+import {
+    createTransfersService,
+    createUsersService,
+    createWalletsService,
+} from '../../services/services';
 import { Wallets } from '../wallets/wallets.component';
 import { UserDetails } from '../user-details/user-details.component';
 import { WalletsContext } from '../../contexts/wallets.context';

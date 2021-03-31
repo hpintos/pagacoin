@@ -10,6 +10,7 @@ const { Step } = Steps;
 
 export const Transfer = () => {
     const history = useHistory();
+    const [loading, setLoading] = React.useState(false);
     const [current, setCurrent] = React.useState(0);
     const [sender, setSender] = React.useState();
     const [receiver, setReceiver] = React.useState();
@@ -26,7 +27,6 @@ export const Transfer = () => {
     React.useEffect(() => {
         const fetchUsers = async () => {
             const users = await userService.getAll();
-            console.log(users);
             setUsers(users || []);
         };
         fetchUsers();
@@ -73,23 +73,29 @@ export const Transfer = () => {
     };
 
     const confirmTransaction = async () => {
-        const transactionResult = await walletsService.transfer({
-            senderName: getFullName(sender),
-            receiverName: getFullName(receiver),
-            senderId: sender.id,
-            senderWalletHash: sender.wallet.id,
-            receiverId: receiver.id,
-            receiverWalletHash: receiver.wallet.id,
-            amount,
-        });
-        if (transactionResult.valid) {
-            clearValues();
-            message.success('Transaction completed! Redirecting...');
-            setTimeout(() => {
-                history.push('/users');
-            }, 3000);
-        } else {
-            message.error(transactionResult.message);
+        setLoading(true);
+        try {
+            const transactionResult = await walletsService.transfer({
+                senderName: getFullName(sender),
+                receiverName: getFullName(receiver),
+                senderId: sender.id,
+                senderWalletHash: sender.wallet.id,
+                receiverId: receiver.id,
+                receiverWalletHash: receiver.wallet.id,
+                amount,
+            });
+            if (transactionResult.valid) {
+                message.success('Transaction completed! Redirecting...');
+                setTimeout(() => {
+                    history.push('/transfers');
+                    clearValues();
+                    setLoading(false);
+                }, 3000);
+            } else {
+                message.error(transactionResult.message);
+            }
+        } catch (error) {
+            message.error(error);
         }
     };
 
@@ -160,7 +166,12 @@ export const Transfer = () => {
                     </Button>
                 )}
                 {current === steps.length - 1 && (
-                    <Button type="primary" onClick={confirmTransaction} disabled={disableConfirm}>
+                    <Button
+                        type="primary"
+                        onClick={confirmTransaction}
+                        loading={loading}
+                        disabled={disableConfirm}
+                    >
                         Confirm transaction
                     </Button>
                 )}

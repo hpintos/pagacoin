@@ -16,7 +16,7 @@ export const WalletSelector = ({
 }) => {
     const walletsService = React.useContext(WalletsContext);
     const [selectedUser, setSelectedUser] = React.useState(user);
-    const [selectedWallet, setSelectedWallet] = React.useState(wallet);
+    const [, setSelectedWallet] = React.useState(wallet);
     const [wallets, setWallets] = React.useState([]);
 
     const handleUserSelection = async (index) => {
